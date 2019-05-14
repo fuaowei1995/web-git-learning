@@ -19,7 +19,7 @@ target/
 .idea/
 /idea/
 *.ipr
-*.xml
+*.iml
 *.iws
 
 #temp file
