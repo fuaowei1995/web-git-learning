@@ -24,6 +24,10 @@ public class Const {
         String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";
     }
 
+    public interface RedisCacheTime{
+        int REDIS_SESSION_EXTIME = 60*30;//30 minutes
+    }
+
     public interface ProductListOrderBy {
         Set<String> PRICA_ASC_DESC = Sets.newHashSet("price_desc", "price_asc");
     }

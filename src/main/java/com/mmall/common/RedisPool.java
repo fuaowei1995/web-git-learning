@@ -46,12 +46,12 @@ public class RedisPool {
 
         }
 
-        public static void main(String[] args) {
-                Jedis jedis = pool.getResource();
-                jedis.set("akey","avalue");
-                returnResource(jedis);
-
-                pool.destroy();//临时调用，销毁连接
-                System.out.println("jedis pool connect end");
-        }
+//        public static void main(String[] args) {
+//                Jedis jedis = pool.getResource();
+//                jedis.set("akey","avalue");
+//                returnResource(jedis);
+//
+//                pool.destroy();//临时调用，销毁连接
+//                System.out.println("jedis pool connect end");
+//        }
 }
