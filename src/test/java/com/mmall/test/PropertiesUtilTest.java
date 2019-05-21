@@ -1,6 +1,7 @@
 package com.mmall.test;
 
 import com.mmall.util.PropertiesUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,10 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
-
+@Slf4j
 public class PropertiesUtilTest {
 
-    private static final Logger logger = LoggerFactory.getLogger(PropertiesUtilTest.class);
 
     private static Properties props;
     static {
@@ -22,7 +22,7 @@ public class PropertiesUtilTest {
            props.load(new InputStreamReader(PropertiesUtil.class.getClassLoader().getResourceAsStream(filename),
                    "UTF-8"));
        }catch (IOException e){
-           logger.info("读入文件错误",e);
+          log.info("读入文件错误",e);
        }
     }
 

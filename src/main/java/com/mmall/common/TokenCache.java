@@ -3,15 +3,15 @@ package com.mmall.common;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import jdk.nashorn.internal.parser.Token;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cglib.core.Local;
+
 
 import java.util.concurrent.TimeUnit;
-
+@Slf4j
 public class TokenCache {
-    private static Logger logger = LoggerFactory.getLogger(TokenCache.class);
+
 
     public static final String TOKEN_PREFIX = "token_";
 
@@ -29,15 +29,15 @@ public class TokenCache {
     }
 
     public static String getKey(String key){
-        String value = null;
+
         try{
-            value = localCache.get(key);
+        String value = localCache.get(key);
             if("".equals(value)){
                 return null;
             }
             return value;
         }catch (Exception e){
-            logger.error("localCache get error",e);
+           log.error("localCache get error",e);
             return null;
         }
 
