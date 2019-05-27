@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-@RequestMapping("/product/")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired

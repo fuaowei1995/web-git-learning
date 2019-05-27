@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class CookieUtil {
     private final static String COOKIE_DOMIN = "happymmall";
-    private final static String COOKIE_NAME = "mmall_cookie_Token";
+    private final static String COOKIE_NAME = "JSESSIONID";
 
+
+    //bug 写入redis中的token和chrome浏览器的cookie不一致get_user_info时
+    // +导致拿不到redis中的数据
     public static void writeLoginToken(HttpServletResponse response,String token){
         Cookie ck = new Cookie(COOKIE_NAME,token);
+        // Cookie ck = new Cookie(COOKIE_NAME,token);
         ck.setDomain(COOKIE_DOMIN);
         ck.setHttpOnly(true);
         ck.setPath("/");

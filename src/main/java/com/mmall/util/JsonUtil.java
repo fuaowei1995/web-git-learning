@@ -116,7 +116,7 @@ public class JsonUtil {
 //
 //        List<User>userList3 = JsonUtil.string2Obj(struList,List.class,User.class);
 //        User u3 =JsonUtil.string2Object(stru1,User.class);
-//
+//        log.info("string to Object u3:{}",u3);
 //
 //        log.info("program end");
 //    }

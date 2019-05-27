@@ -60,6 +60,7 @@
     </dependency>
 
 
+
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
@@ -257,6 +258,31 @@
       <version>1.16.18</version>
       <scope>provided</scope>
     </dependency>
+
+    <!-- spring session redis -->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.session</groupId>-->
+<!--      <artifactId>spring-session-data-redis</artifactId>-->
+<!--      <version>1.2.0.RELEASE</version>-->
+<!--    </dependency>-->
+    <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
+    <dependency>
+      <groupId>org.springframework.session</groupId>
+      <artifactId>spring-session-data-redis</artifactId>
+      <version>1.2.0.RELEASE</version>
+    </dependency>
+
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.data</groupId>-->
+<!--      <artifactId>spring-data-redis</artifactId>-->
+<!--      <version>2.1.0.RELEASE</version>-->
+<!--    </dependency>-->
+
+<!--    <dependency>-->
+<!--      <groupId>org.redisson</groupId>-->
+<!--      <artifactId>redisson</artifactId>-->
+<!--      <version>2.9.0</version>-->
+<!--    </dependency>-->
 
   </dependencies>
 
