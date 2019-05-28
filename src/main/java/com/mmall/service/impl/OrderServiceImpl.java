@@ -31,6 +31,8 @@ import com.mmall.vo.ShippingVo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang.time.DateUtils;
 import org.aspectj.weaver.ast.Or;
 import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
 import org.slf4j.Logger;
@@ -535,6 +537,30 @@ public class OrderServiceImpl implements IOrderService {
     }
 
 
+    public void closeOrder(int hour){
+        Date closeDateTime = DateUtils.addHours(new Date(),-hour);
+        List<Order>orderList = orderMapper.selectOrderStatusByCreateTime(Const.OrderStatusEnum.NO_PAY.getCode(), DateTimeUtil.dateToStr(closeDateTime));
+        if (orderList != null){
+            for (Order order : orderList){
+                List<OrderItem>orderItemList = orderItemMapper.getByOrderNo(order.getOrderNo());
+                for (OrderItem orderItem : orderItemList){
+                    Integer stock = productMapper.selectStockByProductId(orderItem.getProductId());
+                    if (stock == null){
+                        continue;
+                    }
+                    Product product = new Product();
+                    product.setStock(stock+orderItem.getQuantity());
+                    product.setId(orderItem.getProductId());
+                    productMapper.updateByPrimaryKeySelective(product);
+                }
+                orderMapper.closeOrderByOrderId(order.getId());
+                log.info("订单{}关闭完成",order.getOrderNo());
+            }
+        }else{
+            log.info("未查询到超时订单");
+        }
+
+    }
 
 
 

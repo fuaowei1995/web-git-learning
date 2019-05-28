@@ -28,4 +28,6 @@ public interface IOrderService {
     ServerResponse manageSearch(Long orderNo,int pageNum,int pageSize);
 
     ServerResponse manageSendGoods(Long orderNo);
+
+    void closeOrder(int hour);
 }

@@ -23,4 +23,6 @@ public interface OrderItemMapper {
     List<OrderItem> getByUserIdOrderNo(@Param("userId")Integer userId,@Param("orderNo")Long orderNo);
 
     List<OrderItem> getByOrderNo(@Param("orderNo")Long orderNo);
+
+
 }

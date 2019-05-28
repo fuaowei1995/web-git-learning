@@ -52,6 +52,10 @@ public class Const {
         }
     }
 
+    public interface REDIS_LOCK{
+        String CLOSE_ORDER_TASK_LOCK = "CLOSE_ORDER_TASK_LOCK";
+    }
+
     public enum OrderStatusEnum {
         CANCEED(0, "已取消"),
         NO_PAY(10, "未支付"),
