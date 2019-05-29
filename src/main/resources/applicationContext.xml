@@ -15,7 +15,6 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
-
     <!--<context:annotation-config/>-->
     <aop:aspectj-autoproxy/>
     <context:property-placeholder location="classpath:datasource.properties"></context:property-placeholder>
