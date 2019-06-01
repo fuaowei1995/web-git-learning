@@ -59,7 +59,7 @@ public class CloseOrderTask {
     }
 
 
-    //@Scheduled(cron = "0 */1 * * * ?")
+    @Scheduled(cron = "0 */1 * * * ?")
     public void closeOrderTaskV3(){
         log.info("定时关闭订单开始");
         //关闭订单业务逻辑
@@ -85,7 +85,7 @@ public class CloseOrderTask {
         log.info("定时关闭订单关闭");
     }
 
-    @Scheduled(cron = "0 */1 * * * ?")
+   // @Scheduled(cron = "0 */1 * * * ?")
     public void closeOrderTaskV4(){
         RLock lock = redissonManager.getRedisson().getLock(Const.REDIS_LOCK.CLOSE_ORDER_TASK_LOCK);
         boolean getlock = false;

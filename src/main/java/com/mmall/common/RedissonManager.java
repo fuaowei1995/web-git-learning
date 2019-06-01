@@ -16,7 +16,7 @@ public class RedissonManager {
     private static Redisson redisson = null;
 
     private static String  redisIp1 = PropertiesUtil.getProperty("redis1.ip");
-    private static Integer redisPort1 = Integer.parseInt(PropertiesUtil.getProperty("redis1.port"));
+    private static String redisPort1 = PropertiesUtil.getProperty("redis1.port");
 
 
 
